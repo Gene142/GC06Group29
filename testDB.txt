@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 06, 2018 at 02:39 PM
+-- Generation Time: Feb 06, 2018 at 02:47 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -17,6 +17,92 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Admins`
+--
+
+CREATE TABLE `Admins` (
+  `adminID` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Bids`
+--
+
+CREATE TABLE `Bids` (
+  `bidID` bigint(20) UNSIGNED NOT NULL,
+  `amount` int(11) NOT NULL,
+  `buyerID` int(11) NOT NULL,
+  `itemID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Bids`
+--
+
+INSERT INTO `Bids` (`bidID`, `amount`, `buyerID`, `itemID`) VALUES
+(1, 78, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Browsing`
+--
+
+CREATE TABLE `Browsing` (
+  `itemID` int(11) NOT NULL,
+  `buyerID` int(11) NOT NULL,
+  `categoryID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Buyers`
+--
+
+CREATE TABLE `Buyers` (
+  `buyerID` bigint(20) UNSIGNED NOT NULL,
+  `firstName` char(30) NOT NULL,
+  `lastName` char(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Buyers`
+--
+
+INSERT INTO `Buyers` (`buyerID`, `firstName`, `lastName`, `email`, `address`, `password`) VALUES
+(1, 'Gene', 'Stein', 'gene.stein@ucl.com', '6 Monkwell Road', '12345'),
+(2, 'Gene', 'Stein', 'gene.stein@ucl.com', '6 Monkwell Road', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Categories`
+--
+
+CREATE TABLE `Categories` (
+  `categoryID` smallint(6) NOT NULL,
+  `description` tinytext NOT NULL,
+  `name` char(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Categories`
+--
+
+INSERT INTO `Categories` (`categoryID`, `description`, `name`) VALUES
+(1, 'Apple Computers', 'Macbook Pro');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Feedback`
 --
 
@@ -26,3 +112,114 @@ CREATE TABLE `Feedback` (
   `feedback` varchar(250) NOT NULL,
   `pointsGiven` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Items`
+--
+
+CREATE TABLE `Items` (
+  `itemID` bigint(20) UNSIGNED NOT NULL,
+  `description` tinytext NOT NULL,
+  `startPrice` int(11) NOT NULL,
+  `resPrice` int(11) NOT NULL,
+  `categoryID` int(11) NOT NULL,
+  `endDate` datetime NOT NULL,
+  `sellerID` int(11) NOT NULL,
+  `numBids` int(11) NOT NULL,
+  `highestBidID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Items`
+--
+
+INSERT INTO `Items` (`itemID`, `description`, `startPrice`, `resPrice`, `categoryID`, `endDate`, `sellerID`, `numBids`, `highestBidID`) VALUES
+(1, 'THis is a Macbook Pro being sold by Philip to Gene.', 30, 50, 1, '2018-02-08 00:00:00', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Sellers`
+--
+
+CREATE TABLE `Sellers` (
+  `sellerID` bigint(20) UNSIGNED NOT NULL,
+  `firstName` char(30) NOT NULL,
+  `lastName` char(30) NOT NULL,
+  `email` char(50) NOT NULL,
+  `address` char(255) NOT NULL,
+  `feedbackPoints` int(11) NOT NULL,
+  `password` char(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Sellers`
+--
+
+INSERT INTO `Sellers` (`sellerID`, `firstName`, `lastName`, `email`, `address`, `feedbackPoints`, `password`) VALUES
+(1, 'Philip', 'Spencer', 'philip.spencer@ucl.com', 'Wherever Philip hangs his hat.', 1, '12345');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Bids`
+--
+ALTER TABLE `Bids`
+  ADD PRIMARY KEY (`bidID`),
+  ADD UNIQUE KEY `bidID` (`bidID`);
+
+--
+-- Indexes for table `Buyers`
+--
+ALTER TABLE `Buyers`
+  ADD PRIMARY KEY (`buyerID`),
+  ADD UNIQUE KEY `buyerID` (`buyerID`);
+
+--
+-- Indexes for table `Categories`
+--
+ALTER TABLE `Categories`
+  ADD PRIMARY KEY (`categoryID`);
+
+--
+-- Indexes for table `Items`
+--
+ALTER TABLE `Items`
+  ADD PRIMARY KEY (`itemID`),
+  ADD UNIQUE KEY `itemID` (`itemID`);
+
+--
+-- Indexes for table `Sellers`
+--
+ALTER TABLE `Sellers`
+  ADD PRIMARY KEY (`sellerID`),
+  ADD UNIQUE KEY `sellerID` (`sellerID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Bids`
+--
+ALTER TABLE `Bids`
+  MODIFY `bidID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Buyers`
+--
+ALTER TABLE `Buyers`
+  MODIFY `buyerID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `Items`
+--
+ALTER TABLE `Items`
+  MODIFY `itemID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Sellers`
+--
+ALTER TABLE `Sellers`
+  MODIFY `sellerID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
