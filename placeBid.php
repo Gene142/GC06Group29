@@ -9,7 +9,7 @@
 $bidAmountEntered = (int) $_POST["bidAmountEntered"];
 $itemIdReq = '1';
 
-$db = new mysqli('localhost', 'root', 'root', 'auction')
+$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'dbauction')
 or	die('Could not connect');
 //get highest bid
 $sqlHighestBid = "SELECT MAX(bidAmount) AS bidAmountMax, buyerId FROM bids WHERE itemId = '1' ";
@@ -23,14 +23,6 @@ if((int)$bidAmountEntered > $currentHighestBid) {
 VALUES ('1','$bidAmountEntered', '1')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
-		$to      = 'gene.stein@me.com';
-		$subject = 'the subject';
-		$message = 'you have been outbid';
-		$headers = 'From: webmaster@example.com' . "\r\n" .
-    'Reply-To: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-
-mail($to, $subject, $message, $headers);
 
 	} else {
     	echo "Error: " . $sql . "<br>" . $db->error;
