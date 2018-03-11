@@ -9,7 +9,7 @@
 $bidAmountEntered = (int) $_POST["bidAmountEntered"];
 $itemIdReq = '1';
 
-$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'dbauction')
+$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect');
 //get highest bid
 $sqlHighestBid = "SELECT MAX(bidAmount) AS bidAmountMax, buyerId FROM bids WHERE itemId = '1' ";
@@ -25,8 +25,8 @@ VALUES ('1','$bidAmountEntered', '1')";
     	echo "Bid Successful";
 
 	} else {
-    	echo "Error: " . $sql . "<br>" . $db->error;
-		}
+		echo "bid failed?";
+	}
 } else {
 	echo " current highest bid: $currentHighestBid";
 	echo "bid amount entered: $bidAmountEntered";
