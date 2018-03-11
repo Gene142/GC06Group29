@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	Hello World!
+
 <?php
 
 <form>
@@ -8,3 +15,5 @@
 </form>
 
 ?>
+</body>
+</html>
