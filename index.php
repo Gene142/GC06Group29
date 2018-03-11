@@ -5,10 +5,10 @@
 <body>
 	Hello World!
 <form>
-<input type="button" value="to bidPage" onclick="window.location.href='bidPage.php'" />
-<input type="button" value="to buyerHome" onclick="window.location.href='buyerHome.php'" />
-<input type="button" value="to buyerSearch-form" onclick="window.location.href='buyerSearch-form.php'" />
-<input type="button" value="to placeBid" onclick="window.location.href='placeBid.php'" />
+<input type="button" value="to bidPage" onclick="bidPage.php" />
+<input type="button" value="to buyerHome" onclick="buyerHome.php" />
+<input type="button" value="to buyerSearch-form" onclick="buyerSearch-form.php" />
+<input type="button" value="to placeBid" onclick="placeBid.php" />
 </form>
 </body>
 </html>
