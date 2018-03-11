@@ -10,13 +10,13 @@ table, th, td {
 </head>
 <body>
 <?php
-
+$itemId =  $_POST["itemId"];
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect: ');
 	
 
-$sql = "SELECT * FROM items"
-or die('error with qyery');
+$sql = "SELECT * FROM items WHERE itemId = '$itemId'"
+or die('error with query');
    		
 
 $result = $db->query($sql)
