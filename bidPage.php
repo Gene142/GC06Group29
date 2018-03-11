@@ -17,7 +17,7 @@ Item Information
 $itemIdReq = '1';
 
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'dbauction')
-or	die('Could not connect: asas');
+or	die('Could not connect: ');
 	
 
 $sql = "SELECT * FROM items WHERE itemId = '$itemIdReq' "
@@ -25,7 +25,7 @@ or die('error with query');
    		
 
 $result = $db->query($sql)
-or die('Error with queryHGDHD'.mysql_error()); 
+or die('Error with query'); 
 if ($result->num_rows > 0) {
     echo "<table><tr><th>Name</th><th>Description</th><th>End Date</th><th>Starting Price</th><th>Highest Bid</th></tr>";
     // output data of each row

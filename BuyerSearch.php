@@ -12,7 +12,7 @@ table, th, td {
 <?php
 
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'dbauction')
-or	die('Could not connect: asas');
+or	die('Could not connect: ');
 	
 
 $sql = "SELECT * FROM items"
@@ -20,7 +20,7 @@ or die('error with qyery');
    		
 
 $result = $db->query($sql)
-or die('Error with queryHGDHD'.mysql_error()); 
+or die('Error with query'); 
 if ($result->num_rows > 0) {
     echo "<table><tr><th>ID</th><th>Name</th></tr>";
     // output data of each row
