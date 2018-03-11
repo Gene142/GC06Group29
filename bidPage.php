@@ -16,7 +16,7 @@ Item Information
 //gotta get the itemId firest
 $itemIdReq = '1';
 
-$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'dbauction')
+$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect: ');
 	
 

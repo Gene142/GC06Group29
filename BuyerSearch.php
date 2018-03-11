@@ -11,7 +11,7 @@ table, th, td {
 <body>
 <?php
 
-$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'dbauction')
+$db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect: ');
 	
 
