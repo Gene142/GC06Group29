@@ -1,6 +1,6 @@
 <?php
 require("sendgrid-php-master/sendgrid-php.php");
-function sendEmail {
+function sendEmail() {
 
 $from = new SendGrid\Email("Example User", "g.stein142@gmail.com");
 $subject = "Sending with SendGrid is Fun";
