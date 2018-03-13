@@ -10,7 +10,7 @@ $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbaucti
 or die ('could not connect to database');
 
 //set up query
-$sql = "SELECT * FROM buyers WHERE email = '$username' AND password = '$password' ";
+$sql = "SELECT * FROM $buyerSeller WHERE email = '$username' AND password = '$password' ";
 //run query
 $result = $db->query($sql);
 
