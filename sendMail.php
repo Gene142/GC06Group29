@@ -1,6 +1,7 @@
 <?php
-
 require("sendgrid-php-master/sendgrid-php.php");
+function sendEmail {
+
 $from = new SendGrid\Email("Example User", "g.stein142@gmail.com");
 $subject = "Sending with SendGrid is Fun";
 $to = new SendGrid\Email("Example User", "gene.stein@me.com);
@@ -16,5 +17,7 @@ print_r($response->headers());
 echo $response->body();
 
 echo "this maybe did not work";
+
+}
 
 ?>

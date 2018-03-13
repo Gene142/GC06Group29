@@ -39,13 +39,13 @@ if ($result->num_rows > 0) {
 //and close
 $db->close();
 
+include('sendMail.php');
+sendEmail();
+
   ?>
 <form>
 <input type="button" value="Find an Auction" onclick="window.location.href='BuyerSearch-form.php'" />
 <input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
-</form>
-<form action = "sendMail.php" method = "post">
-<button type="submit" value="submit"/>
 </form>
 
 
