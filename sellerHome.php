@@ -1,3 +1,4 @@
+<?php SESSION_START(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +12,9 @@ table, th, td {
 
 <?php 
 //continue session, get data
-SESSION_START();
 $userFirstName = $_SESSION['userFirstName'];
 $buyerId = $_SESSION['userId'];
-echo "Welcome to your home $userFirstName, listed below are your current bids!";
+echo "Welcome to your home $userFirstName, listed below are your auctions!";
 //create connection to DB
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');

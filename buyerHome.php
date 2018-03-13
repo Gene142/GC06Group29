@@ -1,3 +1,4 @@
+<?php SESSION_START(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@ table, th, td {
 
 <?php 
 //continue session, get data
-SESSION_START();
+
 $userFirstName = $_SESSION['userFirstName'];
 $buyerId = $_SESSION['userId'];
 echo "Welcome to your home $userFirstName, listed below are your current bids!";
@@ -43,6 +44,11 @@ $db->close();
 <input type="button" value="Find an Auction" onclick="window.location.href='BuyerSearch-form.php'" />
 <input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
 </form>
+<form action = "sendMail.php">
+<button type="submit" value="submit"/>
+</form>
+
+
 
 </body>
 </html>
