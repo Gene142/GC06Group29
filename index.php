@@ -1,14 +1,111 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    }
+    /* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+} 
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+</style>
+
+<head> <title> Sign In to Account </title>
+
+</head> 
 <body>
-	Hello World!
-<form>
-<input type="button" value="to bidPage" onclick="window.location.href='bidPage.php'" />
-<input type="button" value="to buyerHome" onclick="window.location.href='buyerHome.php'"/>
-<input type="button" value="to buyerSearch-form" onclick="window.location.href='buyerSearch-form.php'" />
-<input type="button" value="to placeBid" onclick="window.location.href='placeBid.php'"/>
-</form>
+
+<div class="header">
+      <h1>Sign In</h1>
+      <form action = "SignInCheck" method = "post">
+     
+      <label for="Email Address"><b>Email Address</b></label>
+      <input type="text" name="email" required>
+        
+      <label for="Password"><b>Password</b></label>
+      <input type="text" name="inputPassword" required>
+      
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </form>
+</div>
 </body>
 </html>
