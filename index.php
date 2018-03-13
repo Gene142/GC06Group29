@@ -105,6 +105,17 @@ hr {
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
         <button type="submit" class="signupbtn">Sign Up</button>
       </div>
+      <fieldset>
+        <legend></legend>
+          <div>
+          <input type="radio" id="buyer" name="interest" value="buyers" checked>
+           <label for="buyer">Log in as Buyer</label>
+          </div>
+          <div>
+            <input type="radio" id="seller" name="interest" value="sellers">
+            <label for="seller">Log in as Seller</label>
+          </div>
+    </fieldset>
     </form>
 </div>
 </body>

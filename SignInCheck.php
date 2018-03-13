@@ -3,6 +3,7 @@
 //get variables
 $username =  $_POST["email"];
 $password = $_POST["inputPassword"];
+$buyerSeller = $_POST['interest'];
 
 //connect to DB
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
@@ -23,7 +24,11 @@ if($result->num_rows == 1) {
 	$_SESSION['userEmail'] = $row['email'];
 	$_SESSION['userLastName'] = $row['lastName'];
 	//lead to next page
+	if($buyerSeller == 'buyers') {
 	header("Location: buyerHome.php");
+} else {
+	header("Location: sellerHome.php");
+}
 } else {
 	echo("failed to login");
 }
