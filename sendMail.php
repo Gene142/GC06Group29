@@ -4,7 +4,7 @@ function sendEmail {
 
 $from = new SendGrid\Email("Example User", "g.stein142@gmail.com");
 $subject = "Sending with SendGrid is Fun";
-$to = new SendGrid\Email("Example User", "gene.stein@me.com);
+$to = new SendGrid\Email("Example User", "gene.stein@me.com");
 $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
