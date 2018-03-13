@@ -93,7 +93,7 @@ hr {
 
 <div class="header">
       <h1>Sign In</h1>
-      <form action = "SignInCheck" method = "post">
+      <form action = "SignInCheck.php" method = "post">
      
       <label for="Email Address"><b>Email Address</b></label>
       <input type="text" name="email" required>
