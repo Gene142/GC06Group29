@@ -8,7 +8,6 @@
 
 $categoryId = $_POST['categoryId'];
 $sortOption = $_POST['sortOption'];
-echo "these are the posts: $categoryId and $sortOption";
 
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
