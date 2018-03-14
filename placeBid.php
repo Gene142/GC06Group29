@@ -29,6 +29,7 @@ VALUES ('$itemIdReq','$bidAmountEntered', '$buyerId')";
 
 	} else {
 		echo "bid failed: enter a higher bid thanks";
+		echo "bidAmountEntered = $bidAmountEntered and highestBid = $highestBid";
 	}
 } else {
 	echo "current highest bid: $currentHighestBid";
