@@ -22,7 +22,7 @@ while ($row = $result->fetch_assoc()) {
 echo '<tr><td>'."Name". '</td>'. '<td>' . $row['name'].'</td></tr>';
 echo '<tr><td>' ."Item Description". '</td>'. '<td>' . $row['description'].'</td></tr>';
 echo '<tr><td>' . "Bid Amount". '</td>'. '<td>' .'£'. $row['bidAmount'].'</td></tr>';
-echo '<tr><td>'."".'</td>'. '<td>'."".'</td></tr>';'
+echo '<tr><td>'."".'</td>'. '<td>'."".'</td></tr>';
 	
 }
 
