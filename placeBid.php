@@ -9,7 +9,7 @@
 <?php 
 $bidAmountEntered = (int) $_POST["bidAmountEntered"];
 $itemIdReq = $_POST["itemIdReq"];
-$newbuyerId = $_SESSION["userId"];
+$newBuyerId = $_SESSION["userId"];
 $highestBid = (int) $_POST["highestBid"];
 $currentHighestBidderEmail = $_POST["currentHighestBidderEmail"];
 $itemName = $_POST["itemName"];
