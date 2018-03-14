@@ -12,7 +12,7 @@ table, th, td {
 
 <?php 
 include('AuctionControl.php');
-echo ( AuctionControl()) ;
+echo  AuctionControl();
 //continue session, get data
 
 $userFirstName = $_SESSION['userFirstName'];
