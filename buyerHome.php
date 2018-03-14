@@ -24,7 +24,7 @@ $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction',
 or  die('Could not connect: ');
 
 //query
-$sql = "SELECT A.itemId, A.name, A.description, A.startPrice, A.resPrice, A.endDate, A.currentBid, B.highestBid FROM ((SELECT DISTINCT(b.itemId), i.name, i.description, i.startPrice, i.resPrice, i.endDate, MAX(bidAmount) AS currentBid FROM items i, bids b WHERE b.buyerId = '1' AND b.itemId = i.itemId GROUP BY itemId) AS A JOIN (SELECT DISTINCT(b.itemId), MAX(bidAmount) AS highestBid FROM items i, bids b WHERE b.itemId = i.itemId GROUP BY itemId) AS B ON A.itemId = B.itemId) WHERE A.endDate > CURRENT_TIMESTAMP()";
+$sql = "SELECT A.itemId, A.name, A.description, A.startPrice, A.resPrice, A.endDate, A.currentBid, B.highestBid FROM ((SELECT DISTINCT(b.itemId), i.name, i.description, i.startPrice, i.resPrice, i.endDate, MAX(bidAmount) AS currentBid FROM items i, bids b WHERE b.buyerId = '$buyerId' AND b.itemId = i.itemId GROUP BY itemId) AS A JOIN (SELECT DISTINCT(b.itemId), MAX(bidAmount) AS highestBid FROM items i, bids b WHERE b.itemId = i.itemId GROUP BY itemId) AS B ON A.itemId = B.itemId) WHERE A.endDate > CURRENT_TIMESTAMP()";
 //run query, get all bids
 $result = $db->query($sql)
 or die('Error with query'); 
