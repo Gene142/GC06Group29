@@ -17,11 +17,11 @@ echo'<table border = "1">';
 
 
 
-while ($row= mysqli_fetch_array($result)) {
+while ($row = $result->mysqli_fetch_array($result)) {
 
-echo '<tr><td>'."Item ID No". '</td>'. '<td>' . $row['itemID'].'</td></tr>';
+echo '<tr><td>'."Name". '</td>'. '<td>' . $row['name'].'</td></tr>';
 echo '<tr><td>' ."Item Description". '</td>'. '<td>' . $row['description'].'</td></tr>';
-echo '<tr><td>' . "Bid Amount". '</td>'. '<td>' .'£'. $row['amount'].'</td></tr>';
+echo '<tr><td>' . "Bid Amount". '</td>'. '<td>' .'£'. $row['bidAmount'].'</td></tr>';
 	
 }
 
