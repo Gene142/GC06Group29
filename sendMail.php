@@ -1,5 +1,6 @@
 <?php
-require("sendgrid-php-master/sendgrid-php.php");
+require("sendgrid-php-master\sendgrid-php.php");
+require 'sendgrid-php-master\vendor\autoload.php';
 function sendEmail() {
 
 $from = new SendGrid\Email("Example User", "g.stein142@gmail.com");
