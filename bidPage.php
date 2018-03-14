@@ -23,7 +23,7 @@ or	die('Could not connect: ');
 
 $sql = "SELECT A.name, A.description, A.startPrice, A.resPrice, a.endDate, B.currentHighestBidderEmail, B.bidAmount, B.itemId  FROM
 (SELECT itemId, name, description, startPrice, resPrice, endDate FROM items WHERE itemId = '$itemIdReq') AS A LEFT OUTER JOIN
-(SELECT p.email AS currentHighestBidderEmail, b.buyerId, b.bidAmount, b.itemId FROM bids b, buyers p WHERE itemId = '$itemIdReq' AND bidAmount = (SELECT MAX(bidAmount) FROM bids WHERE itemId = '$itemIdReq') AND p.buyerId = b.buyerId) AS B ON A.itemId = B.itemId;";
+(SELECT p.email AS currentHighestBidderEmail, b.buyerId, b.bidAmount, b.itemId FROM bids b, buyers p WHERE itemId = '$itemIdReq' AND bidAmount = (SELECT MAX(bidAmount) FROM bids WHERE itemId = '$itemIdReq') AND p.buyerId = b.buyerId) AS B ON A.itemId = B.itemId;"
 or die('error with query');
    		
 
