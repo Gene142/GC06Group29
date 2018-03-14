@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
         $highestBid = $row["bidAmount"];
         $currentHighestBidderEmail = $row["currentHighestBidderEmail"];
         $itemName = $row["name"];
-
+        $startPrice = $row["startPrice"];
     // output data
         echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</tr>";
 
@@ -43,12 +43,14 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
+//also add 1 to viewCount
+$sql = 
 
 $db->close();
 
 ?>
 <form action = "placeBid.php" method = "post">
+<input type = "hidden" name = "startPrice" value = "<?php echo $startPrice; ?>" />
 <input type = "hidden" name = "itemIdReq" value = "<?php echo $itemIdReq; ?>" />
 <input type = "hidden" name = "itemName" value = "<?php echo $itemName; ?>" />
 <input type = "hidden" name = "highestBid" value = "<?php echo $highestBid; ?>" />

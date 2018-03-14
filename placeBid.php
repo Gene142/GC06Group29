@@ -13,15 +13,21 @@ $newBuyerId = $_SESSION["userId"];
 $highestBid = (int) $_POST["highestBid"];
 $currentHighestBidderEmail = $_POST["currentHighestBidderEmail"];
 $itemName = $_POST["itemName"];
+$startPrice = (int) $_POST["startPrice"];
 
 
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect');
-
-if($bidAmountEntered > $highestBid) {
+if $highestBid == 0 || $highestBid == NULL {
+	if($bidAmountEntered > $startPrice) {
+		$sql = "INSERT INTO bids (itemId, bidAmount, buyerId) VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
+		if ($db->query($sql) === TRUE) {
+    	echo "Bid Successful";
+    }
+	}
+} else if($bidAmountEntered > $highestBid) {
 	//insert into database FIX BuyerID BIDAMOUNT entered below
-	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId)
-VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
+	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
     	include_once('sendMail.php');
