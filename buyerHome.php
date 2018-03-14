@@ -14,6 +14,7 @@ table, th, td {
 
 $userFirstName = $_SESSION['userFirstName'];
 $buyerId = $_SESSION['userId'];
+echo "<input type='button' value='Find an Auction' onclick='window.location.href='BuyerAuctionBidSearch-form.html'' />";
 echo "Welcome to your home $userFirstName, listed below are your current bids!";
 //create connection to DB
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
@@ -37,7 +38,6 @@ if ($result->num_rows > 0) {
 //and close
 include('AuctionControl.php');
 AuctionControl();  
-echo "<input type='button' value='Find an Auction' onclick='window.location.href='BuyerAuctionBidSearch-form.html'' />";
 
 $db->close();
 ?>
