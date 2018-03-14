@@ -18,7 +18,7 @@ if($result->num_rows > 0) {
 	foreach ($row in $rows) {
 		//first ensure there is a winner:
 		$buyerEmail = $row['buyerEmail'];
-		if($buyerEmail != null {
+		if($buyerEmail != null) {
 		$buyerFirstName = $row['buyerFirstName'];
 		$sellerEmail = $row['sellerEmail'];
 		$sellerFirstName = $row['sellerFirstName'];
