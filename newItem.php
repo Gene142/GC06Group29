@@ -26,8 +26,8 @@ if($endDate > $date) {
 	VALUES('$name','$description','$startPrice', '$resPrice', '$categoryId', '$endDate');";
 
 	if ($db -> query ($sql) === TRUE ) {
-		echo "New Record Successfully Created" ;
-		echo "<a href="sellerHome.php">Return to Home</a>
+		echo "New Record Successfully Created";
+		echo "<a href="sellerHome.php">Return to Home</a>";
 	} else {
  echo "error: " .$sql. "<br> " . $db -> error;
  		}
