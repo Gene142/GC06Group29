@@ -17,7 +17,7 @@ echo'<table border = "1">';
 
 
 
-while ($row = $result->mysqli_fetch_array($result)) {
+while ($row = $result->fetch_assoc()) {
 
 echo '<tr><td>'."Name". '</td>'. '<td>' . $row['name'].'</td></tr>';
 echo '<tr><td>' ."Item Description". '</td>'. '<td>' . $row['description'].'</td></tr>';
