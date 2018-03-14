@@ -40,8 +40,8 @@ $db->close();
 
   ?>
 <form>
-<input type="button" value="Find an Auction" onclick="window.location.href='BuyerSearch-form.php'" />
-<input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
+<input type="button" value="new Auction" onclick="window.location.href='newItem-form.php'" />
+<input type="button" value="View Selling History" onclick="window.location.href='salesHistory.php'" />
 </form>
 
 </body>

@@ -43,7 +43,7 @@ AuctionControl();
 
   ?>
 <form>
-<input type="button" value="Find an Auction" onclick="window.location.href='BuyerSearch-form.php'" />
+<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch.php'" />
 <input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
 </form>
 
