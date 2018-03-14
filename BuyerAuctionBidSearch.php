@@ -1,17 +1,9 @@
-<?php SESSION_START(); 
-$_SESSION[categoryId] = ''
-?>
+<?php SESSION_START(); ?>
 <!DOCTYPE html>
 <html>
 <head>
 </head>
 <body>
-<form action = "BuyerAuctionBidSearch.php" method = "post">
-	<input type="submit" value="A.bidAmount" name = 'sortOption' />
-    <input type="submit" value="B.name" name = 'sortOption' />
-    <input type="submit" value="B.endDate" name = 'sortOption' />
-    <input type="hidden" name="categoryId" value="<?php echo '$_POST['categoryId']' ; ?>"/>
-</form>
 <?php
 
 $categoryId = $_POST['categoryId'];
@@ -46,6 +38,14 @@ echo '</table>';
 
 mysqli_close($db);
  ?>
+
+ <form action = "BuyerAuctionBidSearch.php" method = "post">
+	<input type="submit" value="A.bidAmount" name = 'sortOption' />
+    <input type="submit" value="B.name" name = 'sortOption' />
+    <input type="submit" value="B.endDate" name = 'sortOption' />
+    <input type="hidden" name="categoryId" value="<?php echo '$categoryId'; ?>"/>
+</form>
+
 </body>
 </html>
 
