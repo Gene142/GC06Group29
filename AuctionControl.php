@@ -27,12 +27,19 @@ if($result->num_rows > 0) {
 
 		include('sendMail.php');
 		sendEmailToSellerWithBuyer($buyerFirstName, $sellerEmail, $sellerFirstName, $bidAmount, $buyerAddress, $itemName);
-
-		return "this is A";
+		sendEmailToWinner($buyerEmail, $itemName, $buyerFirstName, $bidAmount);
 		//and then set closed = '1'
-	} else {//if there is now winner
-		return "THIS IS B";
+	} else {//if there is no winner
+			//double check to ensure entire row is not empty
+			$sellerEmail = $row['sellerEmail'];
+			if($sellerEmail != null) {
+				$sellerFirstName = $row['sellerFirstName'];
+				$itemName = $row['itemName'];
+				include('sendMail.php')
+				sendEmailToSellerWithoutBuyer($sellerEmail, $sellerFirstName, $itemName);
+			}
+		
 	}
-} return "THIS IS C";
+}
 }
 }
