@@ -32,6 +32,7 @@ if($result->num_rows > 0) {
 
 		//and then set closed = '1'
 	} else //if there is now winner
+		echo ('seems buyer was null');
 	}
-}
+} echo ('seems there were no results');
 }
