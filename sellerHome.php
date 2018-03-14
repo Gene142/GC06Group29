@@ -13,7 +13,7 @@ table, th, td {
 <?php 
 //continue session, get data
 $userFirstName = $_SESSION['userFirstName'];
-$sellerIdId = $_SESSION['userId'];
+$sellerId = $_SESSION['userId'];
 echo "Welcome to your home $userFirstName, listed below are your auctions!";
 //create connection to DB
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
