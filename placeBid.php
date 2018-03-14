@@ -24,7 +24,7 @@ if($bidAmountEntered > $highestBid) {
 VALUES ('$itemIdReq','$bidAmountEntered', '$buyerId')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
-    	include_once('sendMail.php')
+    	include_once('sendMail.php');
     	sendEmailToOutbid($currentHighestBidderEmail, $highestBid, $bidAmountEntered, $itemName);
 
 	} else {
