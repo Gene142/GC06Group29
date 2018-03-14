@@ -7,12 +7,7 @@ $categoryId = $_POST['categoryId'];
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 
-
-$sql = "SELECT items.itemId, items.description, items.categoryId, bids.bidAmount FROM items 
-INNER JOIN bids ON bids.itemId = items.itemId  WHERE items.categoryId = '$categoryId' 
-ORDER  BY B=bids.bidAmount";
-
-
+$sql = "SELECT A.itemId, B.name, B.description, B.categoryId, A.bidAmount FROM (select itemId, max(bidAmount) AS bidAmount from bids group by itemId) as A JOIN (SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate from items) AS B ON A.itemId = B.itemId";
 
 		
 $result = $db->query($sql)
