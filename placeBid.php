@@ -18,7 +18,7 @@ $startPrice = (int) $_POST["startPrice"];
 
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect');
-if $highestBid == 0 || $highestBid == NULL {
+if ($highestBid == 0 || $highestBid == NULL) {
 	if($bidAmountEntered > $startPrice) {
 		$sql = "INSERT INTO bids (itemId, bidAmount, buyerId) VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
 		if ($db->query($sql) === TRUE) {
