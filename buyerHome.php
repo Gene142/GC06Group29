@@ -11,7 +11,7 @@ table, th, td {
 <body>
 	<form>
 		uiglyg
-	<input type='button' value='Find an Auction' onclick='window.location.href='BuyerAuctionBidSearch-form.html'' />
+	<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-form.html'" />
 </form>
 <?php 
 //continue session, get data
