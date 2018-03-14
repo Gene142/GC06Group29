@@ -15,7 +15,7 @@ or die ('Error with query');
 //if > 0 rows, do some clean up
 if($result->num_rows > 0) {
 	$rows = $result -> fetch_assoc();
-	foreach ($row as $rows) {
+	foreach ($rows as $row) {
 		//first ensure there is a winner:
 		$buyerEmail = $row['buyerEmail'];
 		if($buyerEmail != null) {
@@ -29,7 +29,7 @@ if($result->num_rows > 0) {
 		include('sendMail.php');
 		sendEmailToSellerWithBuyer($buyerFirstName, $sellerEmail, $sellerFirstName, $bidAmount, $buyerAddress, $itemName);
 
-		return "this is A"
+		return "this is A";
 		//and then set closed = '1'
 	} else //if there is now winner
 		return "THIS IS B";
