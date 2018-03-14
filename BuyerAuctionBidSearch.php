@@ -16,8 +16,8 @@ ORDER  BY B=bids.bidAmount";
 
 		
 $result = $db->query($sql)
-or die('Error with query'.mysql_error()); 
-echo '<tr>'."These Are the Current items on the category You have Searched For". '</tr>' ;
+or die('Error with query'); 
+echo '<tr>'."These Are the Current items on the category You have Searched For". '</tr>';
 echo'<table border = "1">';
 
 
