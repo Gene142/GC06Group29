@@ -15,6 +15,7 @@ Item Information
 <?php
 //this page is dedicated to the items. Upon clicking on an item, it leads here. Shows item information, would do a pic if we had time. Has link to click.
 //gotta get the itemId firest
+$userId = $_SESSION['userId'];
 $itemIdReq = $_REQUEST['id'];
 
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
@@ -41,8 +42,9 @@ or die('Error with query');
 
     echo "</table>";
 
-//also add 1 to viewCount
-$sql = 
+//also add 1 to viewCount, browsing. Browsing has a unique ID on buyerId, itemID
+$sql = "INSERT INTO browsing (itemId, buyerId) VALUES ($itemIdReq, $userId);"
+$db->query($sql);
 
 $db->close();
 
