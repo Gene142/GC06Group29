@@ -1,3 +1,4 @@
+<?php SESSION_START(); ?>
 <DOCTYPE html>
 	<html>
 	<head>
@@ -7,30 +8,32 @@
 
 <?php 
 $bidAmountEntered = (int) $_POST["bidAmountEntered"];
-$itemIdReq = '1';
+$itemIdReq = $_POST["itemIdReq"];
+$buyerId = $_SESSION["userId"];
+$highestBid = (int) $_POST["highestBid"];
+$currentHighestBidderEmail = $_POST["currentHighestBidderEmail"];
+$itemName = $_POST["itemName"];
+
 
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect');
-//get highest bid
-$sqlHighestBid = "SELECT MAX(bidAmount) AS bidAmountMax, buyerId FROM bids WHERE itemId = '1' ";
-$result = $db->query($sqlHighestBid);
-$row=$result->fetch_assoc();
-$currentHighestBid = (int)$row["bidAmountMax"];
-$currentHighestBidder = $row["buyerId"];
-if((int)$bidAmountEntered > $currentHighestBid) {
+
+if((int)$bidAmountEntered > $highestBid) {
 	//insert into database FIX BuyerID BIDAMOUNT entered below
 	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId)
-VALUES ('1','$bidAmountEntered', '1')";
+VALUES ('$itemIdReq','$bidAmountEntered', '$buyerId')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
+    	include('sendMail');
+    	sendEmailToOutbid($currentHighestBidderEmail, $highestBid, $bidAmountEntered, $itemName);
 
 	} else {
-		echo "bid failed?";
+		echo "bid failed: enter a higher bid thanks";
 	}
 } else {
-	echo " current highest bid: $currentHighestBid";
+	echo "current highest bid: $currentHighestBid";
 	echo "bid amount entered: $bidAmountEntered";
-	echo "invalid amount entere";
+	echo "invalid amount entered";
 	}
 	//add bidWatchers: if maxBidAmount has been overwritten, email the buyer. We have their Id must simply find  a way to email.
 

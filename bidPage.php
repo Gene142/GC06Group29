@@ -1,3 +1,4 @@
+<?php SESSION_START(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +21,9 @@ $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction',
 or	die('Could not connect: ');
 	
 
-$sql = "SELECT A.itemId, A.name, A.description, A.startPrice, A.resPrice, A.endDate, B.bidAmount FROM 
+$sql = "SELECT A.name, A.description, A.startPrice, A.resPrice, a.endDate, B.currentHighestBidderEmail, B.bidAmount, B.itemId  FROM
 (SELECT itemId, name, description, startPrice, resPrice, endDate FROM items WHERE itemId = '$itemIdReq') AS A LEFT OUTER JOIN
-(SELECT itemId, MAX(bidAmount) as bidAmount FROM bids WHERE itemId = '$itemIdReq') AS B ON A.itemId = B.itemId; "
+(SELECT p.email AS currentHighestBidderEmail, b.buyerId, b.bidAmount, b.itemId FROM bids b, buyers p WHERE itemId = '$itemIdReq' AND bidAmount = (SELECT MAX(bidAmount) FROM bids WHERE itemId = '$itemIdReq') AND p.buyerId = b.buyerId) AS B ON A.itemId = B.itemId;";
 or die('error with query');
    		
 
@@ -33,6 +34,9 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</tr>";
+        $highestBid = $row["bidAmount"];
+        $currentHighestBidderEmail = $row["currentHighestBidderEmail"];
+        $itemName = $row["name"]
     }
     echo "</table>";
 } else {
@@ -44,6 +48,11 @@ $db->close();
 
 ?>
 <form action = "placeBid.php" method = "post">
+<input type = "hidden" name = "itemIdReq" value = "$itemIdReq" />
+<input type = "hidden" name = "itemName" value = "$itemName" />
+<input type = "hidden" name = "highestBid" value = "$highestBid" />
+<input type = "hidden" name = "currentHighestBidderEmail" value = "$currentHighestBidderEmail" />
 <input type= "text" name= "bidAmountEntered"/> 
 <input type="submit" value="Place Bid"  />
+
 </form>
