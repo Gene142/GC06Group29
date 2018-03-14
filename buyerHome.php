@@ -37,8 +37,8 @@ if ($result->num_rows > 0) {
 //and close
 include('AuctionControl.php');
 AuctionControl();  
-echo '<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-form.html'" />'
-echo '<input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />'
+echo "<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-form.html'" />";
+echo "<input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />";
 
 $db->close();
 ?>
