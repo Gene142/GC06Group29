@@ -43,7 +43,7 @@ mysqli_close($db);
 	<input type="submit" value="A.bidAmount" name = 'sortOption' />
     <input type="submit" value="B.name" name = 'sortOption' />
     <input type="submit" value="B.endDate" name = 'sortOption' />
-    <input type="hidden" name="categoryId" value="<?php echo $categoryId ; ?>"/>
+    <input type="hidden" name="categoryId" value="<?php echo $categoryId; ?>"/>
 </form>
 
 </body>
