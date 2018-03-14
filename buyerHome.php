@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
 $db->close();
 
 include('AuctionControl.php');
-AuctionControl();
+echo ( AuctionControl()) ;
 
   ?>
 <form>

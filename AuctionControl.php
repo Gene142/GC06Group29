@@ -2,7 +2,6 @@
 
 function AuctionControl() {
 //connect to database
-	echo "WTF";
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 
@@ -30,10 +29,10 @@ if($result->num_rows > 0) {
 		include('sendMail.php');
 		sendEmailToSellerWithBuyer($buyerFirstName, $sellerEmail, $sellerFirstName, $bidAmount, $buyerAddress, $itemName);
 
-
+		return "this is A"
 		//and then set closed = '1'
 	} else //if there is now winner
-		echo ('seems buyer was null');
+		return "THIS IS B";
 	}
-} echo ('seems there were no results');
+} return "THIS IS C";
 }
