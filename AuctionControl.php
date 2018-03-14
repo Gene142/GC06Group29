@@ -17,8 +17,8 @@ if($result->num_rows > 0) {
 	$rows = $result -> fetch_assoc();
 	foreach ($row in $rows) {
 		//first ensure there is a winner:
-		if($buyerEmail != null {
 		$buyerEmail = $row['buyerEmail'];
+		if($buyerEmail != null {
 		$buyerFirstName = $row['buyerFirstName'];
 		$sellerEmail = $row['sellerEmail'];
 		$sellerFirstName = $row['sellerFirstName'];
