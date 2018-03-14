@@ -9,7 +9,7 @@
 <?php 
 $bidAmountEntered = (int) $_POST["bidAmountEntered"];
 $itemIdReq = $_POST["itemIdReq"];
-$buyerId = $_SESSION["userId"];
+$newbuyerId = $_SESSION["userId"];
 $highestBid = (int) $_POST["highestBid"];
 $currentHighestBidderEmail = $_POST["currentHighestBidderEmail"];
 $itemName = $_POST["itemName"];
@@ -24,6 +24,7 @@ if($bidAmountEntered > $highestBid) {
 VALUES ('$itemIdReq','$bidAmountEntered', '$buyerId')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
+    	include_once('sendMail.php')
     	sendEmailToOutbid($currentHighestBidderEmail, $highestBid, $bidAmountEntered, $itemName);
 
 	} else {
