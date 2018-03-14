@@ -18,15 +18,20 @@ $result = $db->query($sql);
 if($result->num_rows == 1) {
 	$row = $result->fetch_assoc();
 	//start session
+	if($buyerSeller == 'buyers') {
 	session_start();
 	$_SESSION['userFirstName'] = $row['firstName'];
 	$_SESSION['userId'] = $row['buyerId'];
 	$_SESSION['userEmail'] = $row['email'];
 	$_SESSION['userLastName'] = $row['lastName'];
 	//lead to next page
-	if($buyerSeller == 'buyers') {
+	 
 	header("Location: buyerHome.php");
 } else {
+	$_SESSION['userFirstName'] = $row['firstName'];
+	$_SESSION['userId'] = $row['sellerId'];
+	$_SESSION['userEmail'] = $row['email'];
+	$_SESSION['userLastName'] = $row['lastName'];
 	header("Location: sellerHome.php");
 }
 } else {
