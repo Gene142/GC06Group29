@@ -31,13 +31,13 @@ $result = $db->query($sql)
 or die('Error with query'); 
 if ($result->num_rows > 0) {
     echo "<table><tr><th>Name</th><th>Description</th><th>End Date</th><th>Starting Price</th><th>Highest Bid</th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</tr>";
+        $row = $result -> fetch_assoc());
         $highestBid = $row["bidAmount"];
         $currentHighestBidderEmail = $row["currentHighestBidderEmail"];
         $itemName = $row["name"];
-    }
+    // output data
+        echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</tr>";
+
     echo "</table>";
 } else {
     echo "0 results";

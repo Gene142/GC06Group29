@@ -18,13 +18,13 @@ $itemName = $_POST["itemName"];
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or	die('Could not connect');
 
-if((int)$bidAmountEntered > $highestBid) {
+if($bidAmountEntered > $highestBid) {
 	//insert into database FIX BuyerID BIDAMOUNT entered below
 	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId)
 VALUES ('$itemIdReq','$bidAmountEntered', '$buyerId')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
-    	include('sendMail');
+    	include('sendMail.php');
     	sendEmailToOutbid($currentHighestBidderEmail, $highestBid, $bidAmountEntered, $itemName);
 
 	} else {
