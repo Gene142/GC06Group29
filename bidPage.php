@@ -43,7 +43,7 @@ or die('Error with query');
     echo "</table>";
 
 //also add 1 to viewCount, browsing. Browsing has a unique ID on buyerId, itemID
-$sql = "INSERT INTO browsing (itemId, buyerId) VALUES ($itemIdReq, $userId);"
+$sql = "INSERT INTO browsing (itemId, buyerId) VALUES ($itemIdReq, $userId);";
 $db->query($sql);
 
 $db->close();
