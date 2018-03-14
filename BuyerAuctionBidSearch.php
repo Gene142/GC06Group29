@@ -1,4 +1,6 @@
-<?php SESSION_START(); ?>
+<?php SESSION_START(); 
+$_SESSION[categoryId] = ''
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@
 	<input type="submit" value="A.bidAmount" name = 'sortOption' />
     <input type="submit" value="B.name" name = 'sortOption' />
     <input type="submit" value="B.endDate" name = 'sortOption' />
-    <input type="hidden" name="categoryId" value="<?php echo '1'; ?>"/>
+    <input type="hidden" name="categoryId" value="<?php echo '$_POST['categoryId']' ; ?>"/>
 </form>
 <?php
 
