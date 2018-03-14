@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
         echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</tr>";
         $highestBid = $row["bidAmount"];
         $currentHighestBidderEmail = $row["currentHighestBidderEmail"];
-        $itemName = $row["name"]
+        $itemName = $row["name"];
     }
     echo "</table>";
 } else {
