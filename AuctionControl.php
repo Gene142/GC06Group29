@@ -28,7 +28,7 @@ if($result->num_rows > 0) {
 		include('sendMail.php');
 		sendEmailToSellerWithBuyer($buyerFirstName, $sellerEmail, $sellerFirstName, $bidAmount, $buyerAddress, $itemName);
 		sendEmailToWinner($buyerEmail, $itemName, $buyerFirstName, $bidAmount);
-		//and then set closed = '1'
+		$sql2 = "UPDATE items SET closed = '1' WHERE closed = '0' AND endDate < CURRENT_TIMESTAMP();";
 	} else {//if there is no winner
 			//double check to ensure entire row is not empty
 			$sellerEmail = $row['sellerEmail'];
