@@ -27,7 +27,7 @@ if ($highestBid == 0 || $highestBid == NULL) {
     }
 } else if($bidAmountEntered > $highestBid) {
 	//insert into database FIX BuyerID BIDAMOUNT entered below
-	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
+	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId) VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
 	if ($db->query($sql) === TRUE) {
     	echo "Bid Successful";
     	include_once('sendMail.php');
