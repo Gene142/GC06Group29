@@ -1,7 +1,7 @@
 <?php
 SESSION_START();
 
-$Category = $_POST ['categoryId'];
+$categoryId = $_POST['categoryId'];
 
 
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
