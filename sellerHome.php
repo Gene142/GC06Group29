@@ -29,10 +29,10 @@ or die('error with query');
 $result = $db->query($sql)
 or die('Error with query'); 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>Description</th><th>Name</th><th>Start Price</th><th>Reserve Price</th><th>End Date</th><th>Highest Bid ($)</th><th>View Count</th></tr>";
+    echo "<table><tr><th>Description</th><th>Name</th><th>Start Price</th><th>Reserve Price</th><th>End Date</th><th>Highest Bid($)</th><th>View Count</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["description"]."</td><td>".$row["name"]."</td><td>".$row["startPrice"]."</td><td".$row['resPrice']."</td><td>".$row["endDate"]."</td><td>".$row["highestBid"]."</td><td>".$row["viewCount"]."</td></tr>";
+        echo "<tr><td>".$row["description"]."</td><td>".$row["name"]."</td><td>".$row["startPrice"]."</td><td>".$row['resPrice']."</td><td>".$row["endDate"]."</td><td>".$row["highestBid"]."</td><td>".$row["viewCount"]."</td></tr>";
     }
     echo "</table>";
 } else {
