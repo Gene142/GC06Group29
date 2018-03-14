@@ -39,10 +39,9 @@ $db->close();
 
 include('AuctionControl.php');
 AuctionControl();  
-<form>
+
 echo <input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-form.html'" />
 echo <input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
-</form>
 ?>
 
 </body>
