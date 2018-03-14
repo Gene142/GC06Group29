@@ -31,7 +31,7 @@ $result = $db->query($sql)
 or die('Error with query'); 
 if ($result->num_rows > 0) {
     echo "<table><tr><th>Name</th><th>Description</th><th>End Date</th><th>Starting Price</th><th>Highest Bid</th></tr>";
-        $row = $result -> fetch_assoc());
+        $row = $result -> fetch_assoc();
         $highestBid = $row["bidAmount"];
         $currentHighestBidderEmail = $row["currentHighestBidderEmail"];
         $itemName = $row["name"];

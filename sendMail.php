@@ -52,11 +52,11 @@ print_r($response->headers());
 echo $response->body();
 }
 
-function sendEmailToOutbid($oldBuyerEmail, $oldBuyerFirstName, $oldBidAmount, $newBidAmount, $itemName) {
+function sendEmailToOutbid($oldBuyerEmail, $oldBidAmount, $newBidAmount, $itemName) {
 $from = new SendGrid\Email("Example User", "azure_47a5aade659a39df1ab52b1bdd241e42@azure.com");
 $subject = "Your bid on $itemName";
 $to = new SendGrid\Email("Example User", "$oldBuyerEmail");
-$content = new SendGrid\Content("text/plain", "Hello $oldBuyerFirstName, your bid on $itemName for $bidAmount has been outbid for $newBidAmount !");
+$content = new SendGrid\Content("text/plain", "Hello your bid on $itemName for $bidAmount has been outbid for $newBidAmount !");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
 $apiKey = getenv('SendGridKey');
