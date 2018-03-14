@@ -9,13 +9,15 @@ table, th, td {
 </style>
 </head>
 <body>
-	hughlyufhkbgv6rfkuyf lu
+	<form>
+		uiglyg
+	<input type='button' value='Find an Auction' onclick='window.location.href='BuyerAuctionBidSearch-form.html'' />
+</form>
 <?php 
 //continue session, get data
 
 $userFirstName = $_SESSION['userFirstName'];
 $buyerId = $_SESSION['userId'];
-echo "<input type='button' value='Find an Auction' onclick='window.location.href='BuyerAuctionBidSearch-form.html'' />";
 echo "Welcome to your home $userFirstName, listed below are your current bids!";
 //create connection to DB
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
