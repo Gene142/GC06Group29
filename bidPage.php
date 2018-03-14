@@ -46,13 +46,13 @@ if ($result->num_rows > 0) {
 
 
 $db->close();
-echo "TEST: $highestBid, $currentHighestBidderEmail, $itemName";
+
 ?>
 <form action = "placeBid.php" method = "post">
-<input type = "hidden" name = "itemIdReq" value = "$itemIdReq" />
-<input type = "hidden" name = "itemName" value = "$itemName" />
-<input type = "hidden" name = "highestBid" value = "$highestBid" />
-<input type = "hidden" name = "currentHighestBidderEmail" value = "$currentHighestBidderEmail" />
+<input type = "hidden" name = "itemIdReq" value = "<?php echo $itemIdReq; ?>" />
+<input type = "hidden" name = "itemName" value = "<?php echo $itemName; ?>" />
+<input type = "hidden" name = "highestBid" value = "<?php echo $highestBid; ?>" />
+<input type = "hidden" name = "currentHighestBidderEmail" value = "<?php echo $currentHighestBidderEmail; ?>" />
 <input type= "text" name= "bidAmountEntered"/> 
 <input type="submit" value="Place Bid"  />
 
