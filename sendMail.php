@@ -20,7 +20,19 @@ echo $response->body();
 
 }
 
+function sendEmailToSellerWithoutBuyer() {
+$buyerEmail = $row['buyerEmail'];
+		$buyerFirstName = $row['buyerFirstName'];
+		$sellerEmail = $row['sellerEmail'];
+		$sellerFirstName = $row['sellerFirstName'];
+		$bidAmount = $row['bidAmount'];
+		$buyerAddress = $row['buyerAddress'];
+		$itemName = $row['itemName'];
+}
 
+function sendEmailToWinner() {
+
+}
 
 ?>
 

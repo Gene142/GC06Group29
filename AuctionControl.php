@@ -15,7 +15,7 @@ or die ('Error with query');
 //if > 0 rows, do some clean up
 if($result->num_rows > 0) {
 	$rows = $result -> fetch_assoc();
-	foreach ($row in $rows) {
+	foreach ($row as $rows) {
 		//first ensure there is a winner:
 		$buyerEmail = $row['buyerEmail'];
 		if($buyerEmail != null) {
