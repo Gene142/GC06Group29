@@ -47,7 +47,6 @@ if ($highestBid == 0 || $highestBid == NULL) {
 $db -> close();
 ?>
 <form>
-<input type="button" value="Back To Previous Page" onclick="window.location.href='bidPage.php'" />
 <input type="button" value="Back to Home" onclick="window.location.href='buyerHome.php'" />
 </form>
 </body>
