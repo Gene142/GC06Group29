@@ -19,9 +19,10 @@ $name = $_POST ["name"];
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 	
-
+//first double check endDate is > now
+if(endDate > CURRENT_TIMESTAMP()){
 $sql = "INSERT INTO items (name, description, startPrice, resPrice, categoryId, endDate) 
-VALUES('$description','$startPrice', '$resPrice', '$categoryId', '$endDate', '$name')";
+VALUES($name','$description','$startPrice', '$resPrice', '$categoryId', '$endDate');";
 
 
 if ($db -> query ($sql) === TRUE )
@@ -30,6 +31,8 @@ echo "New Record Successfully Created" ;
 } else {
  echo "error: " .$sql. "<br> " . $db -> error;
  }
+}
+
  $db -> close ();
  
  ?>
