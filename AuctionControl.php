@@ -2,6 +2,7 @@
 
 function AuctionControl() {
 //connect to database
+	echo "WTF";
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 
