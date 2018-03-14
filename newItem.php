@@ -24,7 +24,7 @@ or  die('Could not connect: ');
 if($endDate > $date) {
 
 	$sql = "INSERT INTO items (name, description, startPrice, resPrice, categoryId, endDate, sellerId) 
-	VALUES('$name','$description','$startPrice', '$resPrice', '$categoryId', '$endDate', $sellerId);";
+	VALUES('$name','$description','$startPrice', '$resPrice', '$categoryId', '$endDate', '$sellerId');";
 
 	if ($db -> query ($sql) === TRUE ) {
 		echo "New Record Successfully Created";
