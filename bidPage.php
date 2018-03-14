@@ -20,7 +20,9 @@ $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction',
 or	die('Could not connect: ');
 	
 
-$sql = "SELECT * FROM items WHERE itemId = '$itemIdReq' "
+$sql = "SELECT A.itemId, A.name, A.description, A.startPrice, A.resPrice, A.endDate, B.bidAmount FROM 
+(SELECT itemId, name, description, startPrice, resPrice, endDate FROM items WHERE itemId = '$itemIdReq') AS A LEFT OUTER JOIN
+(SELECT itemId, MAX(bidAmount) as bidAmount FROM bids WHERE itemId = '$itemIdReq') AS B ON A.itemId = B.itemId; "
 or die('error with query');
    		
 
