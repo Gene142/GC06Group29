@@ -8,11 +8,13 @@
 	<input type="submit" value="A.bidAmount" name = 'sortOption' />
     <input type="submit" value="B.name" name = 'sortOption' />
     <input type="submit" value="B.endDate" name = 'sortOption' />
+    <input type="hidden" name="categoryId" value="<?php echo '$categoryId'; ?>"/>
 </form>
 <?php
 
 $categoryId = $_POST['categoryId'];
 $sortOption = $_POST['sortOption'];
+echo "these are the posts: $categoryId and $sortOption";
 
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
