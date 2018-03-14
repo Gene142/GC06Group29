@@ -30,14 +30,14 @@ or die('error with query');
 $result = $db->query($sql)
 or die('Error with query'); 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>Name</th><th>Description</th><th>End Date</th><th>Starting Price</th><th>Highest Bid</th></tr>";
+    echo "<table><tr><th>Name</th><th>Description</th><th>End Date</th><th>Starting Price</th><th>Highest Bid</th><th>Reservice Price></th></tr>";
         $row = $result -> fetch_assoc();
         $highestBid = $row["bidAmount"];
         $currentHighestBidderEmail = $row["currentHighestBidderEmail"];
         $itemName = $row["name"];
-        $startPrice = $row["startPrice"];
+        $resPrice = $row["resPrice"];
     // output data
-        echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</tr>";
+        echo "<tr><td>".$row["name"]."</td><td>".$row["description"]."</td><td> ".$row["endDate"]." </td><td> ".$row["startPrice"]."</td><td>".$row["bidAmount"]."</td><td>".$row["resPrice"]."</td></tr>";
 
     echo "</table>";
 } else {
@@ -50,7 +50,7 @@ $db->close();
 
 ?>
 <form action = "placeBid.php" method = "post">
-<input type = "hidden" name = "startPrice" value = "<?php echo $startPrice; ?>" />
+<input type = "hidden" name = "resPrice" value = "<?php echo $resPrice; ?>" />
 <input type = "hidden" name = "itemIdReq" value = "<?php echo $itemIdReq; ?>" />
 <input type = "hidden" name = "itemName" value = "<?php echo $itemName; ?>" />
 <input type = "hidden" name = "highestBid" value = "<?php echo $highestBid; ?>" />
