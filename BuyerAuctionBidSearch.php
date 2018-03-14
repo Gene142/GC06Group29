@@ -40,7 +40,7 @@ mysqli_close($db);
  ?>
 
  <form action = "BuyerAuctionBidSearch.php" method = "post">
-	<input type="submit" value="A.bidAmount" name = 'sortOption' />
+	<input type="submit" value="IFNULL(A.bidAmount, B.resPrice)" name = 'sortOption' />
     <input type="submit" value="B.name" name = 'sortOption' />
     <input type="submit" value="B.endDate" name = 'sortOption' />
     <input type="hidden" name="categoryId" value="<?php echo $categoryId; ?>"/>
