@@ -11,6 +11,8 @@ table, th, td {
 <body>
 
 <?php 
+include('AuctionControl.php');
+echo ( AuctionControl()) ;
 //continue session, get data
 
 $userFirstName = $_SESSION['userFirstName'];
@@ -38,8 +40,7 @@ if ($result->num_rows > 0) {
 //and close
 $db->close();
 
-include('AuctionControl.php');
-echo ( AuctionControl()) ;
+
 
   ?>
 <form>
