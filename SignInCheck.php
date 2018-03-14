@@ -28,6 +28,7 @@ if($result->num_rows == 1) {
 	 
 	header("Location: buyerHome.php");
 } else {
+	session_start();
 	$_SESSION['userFirstName'] = $row['firstName'];
 	$_SESSION['userId'] = $row['sellerId'];
 	$_SESSION['userEmail'] = $row['email'];
