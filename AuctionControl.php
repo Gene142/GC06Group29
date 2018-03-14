@@ -35,7 +35,7 @@ if($result->num_rows > 0) {
 			if($sellerEmail != null) {
 				$sellerFirstName = $row['sellerFirstName'];
 				$itemName = $row['itemName'];
-				include('sendMail.php')
+				include('sendMail.php');
 				sendEmailToSellerWithoutBuyer($sellerEmail, $sellerFirstName, $itemName);
 			}
 		
