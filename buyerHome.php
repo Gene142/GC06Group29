@@ -9,6 +9,10 @@ table, th, td {
 </style>
 </head>
 <body>
+<form>
+<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-form.html'" />
+<input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
+</form>
 <?php 
 //continue session, get data
 
@@ -41,9 +45,6 @@ AuctionControl();
 
 $db->close();
 ?>
-<form>
-<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-form.html'" />
-<input type="button" value="View Bids History" onclick="window.location.href='bidHistory.php'" />
-</form>
+
 </body>
 </html>
