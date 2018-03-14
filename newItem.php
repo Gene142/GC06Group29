@@ -10,6 +10,7 @@ $resPrice = $_POST ["resPrice"];
 $endDate = $_POST ["endDate"];
 //$sellerID = $_POST ["sellerID"];
 $name = $_POST ["name"];
+$sellerId = $_SESSION['userId'];
 //$highestBidID = $_POST ["highestBidID"];
 
 $date = date('Y-m-d H:i:s');
@@ -22,8 +23,8 @@ or  die('Could not connect: ');
 //first double check endDate is > now
 if($endDate > $date) {
 
-	$sql = "INSERT INTO items (name, description, startPrice, resPrice, categoryId, endDate) 
-	VALUES('$name','$description','$startPrice', '$resPrice', '$categoryId', '$endDate');";
+	$sql = "INSERT INTO items (name, description, startPrice, resPrice, categoryId, endDate, sellerId) 
+	VALUES('$name','$description','$startPrice', '$resPrice', '$categoryId', '$endDate', $sellerId);";
 
 	if ($db -> query ($sql) === TRUE ) {
 		echo "New Record Successfully Created";
