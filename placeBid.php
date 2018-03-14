@@ -22,11 +22,9 @@ if ($highestBid == 0 || $highestBid == NULL) {
 	if($bidAmountEntered > $resPrice) {
 		$sql = "INSERT INTO bids (itemId, bidAmount, buyerId) VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
 		if ($db->query($sql) === TRUE) {
-    	echo "Bid Successful";
-    } else {
-    	echo "bid too low"
+    		echo "Bid Successful";
+    	} 
     }
-	}
 } else if($bidAmountEntered > $highestBid) {
 	//insert into database FIX BuyerID BIDAMOUNT entered below
 	$sql = "INSERT INTO bids (itemId, bidAmount, buyerId VALUES ('$itemIdReq','$bidAmountEntered', '$newBuyerId')";
