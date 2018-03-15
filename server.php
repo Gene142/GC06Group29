@@ -12,8 +12,8 @@ $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbaucti
 or die ('could not connect to database');
     
 
-$sql = "INSERT INTO buyers(firstName, lastName, email, password) 
-VALUES('$fname','$lname', '$email', '$password')";
+$sql = "INSERT INTO buyers(firstName, lastName, email, password, address) 
+VALUES('$fname','$lname', '$email', '$password', $address)";
 
 mysqli_query($db, $query);
   	$_SESSION['firstName'] = $fname;
