@@ -25,7 +25,7 @@ $sql = "SELECT * FROM
 (
 SELECT A.itemId, A.total, B.buyerId, B.bidAmount FROM
 (select itemId, MAX(bidAmount) AS total from bids GROUP BY itemId) AS A INNER JOIN 
-(SELECT buyerId, itemId, bidAmount  FROM bids) AS B ON A.itemId = B.itemId AND B.bidAmount = A.total) AS D ON C.itemId = D.itemId WHERE buyerId = '$buyerId' AND closed = '1';"
+(SELECT buyerId, itemId, bidAmount  FROM bids) AS B ON A.itemId = B.itemId AND B.bidAmount = A.total) AS D ON C.itemId = D.itemId WHERE buyerId = '$buyerId' AND closed = '1';";
 //run query, get all bids
 $result = $db->query($sql)
 or die('Error with query'); 
@@ -45,7 +45,7 @@ include('AuctionControl.php');
 AuctionControl();  
 
 $db->close();
- echo "<a href='buyerHome.php'>Return to Home</a>"
+ echo "<a href='buyerHome.php'>Return to Home</a>";
 ?>
 
 </body>
