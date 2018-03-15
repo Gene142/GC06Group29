@@ -27,7 +27,7 @@ echo'<table border = "1">';
 
 while ($row = $result->fetch_assoc()) {
 	//check the current bids
-	if($row['bidAmount'] = NULL) {
+	if($row['bidAmount'] == NULL) {
 		$priceAmount = $row['resPrice'];
 	} else {
 		$priceAmount = $row['bidAmount'];
