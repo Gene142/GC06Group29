@@ -3,7 +3,7 @@ SESSION_START();
 
 //data: buyerId, sellerId, feedback
 $sellerId = $_POST["sellerId"];
-$pointsGiven = $_POST ["pointsGiven"];
+$pointsGiven = $_POST["pointsGiven"];
 $buyerId = $_SESSION['buyerId'];
 
 
