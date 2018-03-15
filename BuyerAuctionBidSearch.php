@@ -12,8 +12,11 @@ $sortOption = $_POST['sortOption'];
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 
-$sql = "SELECT B.itemId, B.name, B.description, B.categoryId, A.bidAmount, B.endDate FROM (select itemId, max(bidAmount) AS bidAmount from bids group by itemId) as A RIGHT OUTER JOIN (SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate from items WHERE endDate > CURRENT_TIMESTAMP() AND categoryId = '$categoryId') AS B ON A.itemId = B.itemId ORDER BY $sortOption;";
-		
+$sql = "SELECT * FROM
+(SELECT B.sellerId, B.itemId, B.name, B.description, B.categoryId, A.bidAmount, B.endDate FROM 
+(select itemId, max(bidAmount) AS bidAmount from bids group by itemId) as A RIGHT OUTER JOIN 
+(SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate, sellerId from items WHERE endDate > CURRENT_TIMESTAMP() AND categoryId = '$categoryId') AS B ON A.itemId = B.itemId) AS C LEFT OUTER JOIN
+ (SELECT SUM(pointsGiven), sellerId from feedback GROUP BY sellerId) AS D ON D.sellerId = C.sellerId"
 $result = $db->query($sql)
 or die('Error with query'); 
 echo '<tr>'."These Are the Current items on the category You have Searched For". '</tr>';
