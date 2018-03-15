@@ -2,7 +2,7 @@
 SESSION_START();
 
 //data: buyerId, sellerId, feedback
-$sellerId = $_REQUEST['id'];
+$sellerId = $POST['id'];
 $pointsGiven = $_POST["pointsGiven"];
 $buyerId = $_SESSION['buyerId'];
 
@@ -16,7 +16,6 @@ or  die('Could not connect: ');
 	} else {
  echo "error: " .$sql. "<br> " . $db -> error;
  		}
-}
 
  $db -> close ();
  echo "<a href='buyerHome.php'>Return to Home</a>";
