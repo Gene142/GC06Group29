@@ -15,7 +15,7 @@ or  die('Could not connect: ');
 $sql = "SELECT C.sellerId, C.itemId, C.name, C.description, C.categoryId, C.bidAmount, C.endDate, D.total, C.resPrice FROM
 (SELECT B.sellerId, B.itemId, B.name, B.description, B.categoryId, A.bidAmount, B.endDate, B.resPrice FROM 
 (select itemId, max(bidAmount) AS bidAmount from bids group by itemId) as A RIGHT OUTER JOIN 
-(SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate, sellerId from items WHERE endDate > CURRENT_TIMESTAMP() AND categoryId = '$categoryId' AND description LIKE '%$description%') AS B ON A.itemId = B.itemId) AS C LEFT OUTER JOIN
+(SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate, sellerId from items WHERE endDate > CURRENT_TIMESTAMP() AND (categoryId = '$categoryId' OR '$categoryId' IS NULL) AND description LIKE '%$description%') AS B ON A.itemId = B.itemId) AS C LEFT OUTER JOIN
  (SELECT SUM(pointsGiven) AS total, sellerId from feedback GROUP BY sellerId) AS D ON D.sellerId = C.sellerId ORDER BY $sortOption ;";
 $result = $db->query($sql)
 or die('Error with query'); 
