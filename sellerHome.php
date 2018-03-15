@@ -38,7 +38,15 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-//and close
+
+$sql2 = "SELECT SUM(pointsGiven) AS total, AVG(pointsGiven) AS average, sellerId from feedback WHERE sellerId = '$sellerId' GROUP BY sellerId";
+$fPoints = $db->query($sql2);
+$toar = $fPoints -> fetch_assoc();
+$total = $toar['total'];
+$averg = $toar['average'];
+echo "you have accumulated $total feedback points! that gives an average of $averg";
+
+
 $db->close();
 
   ?>
