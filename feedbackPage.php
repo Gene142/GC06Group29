@@ -10,7 +10,7 @@ $buyerId = $_SESSION['userId'];
 $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 	//no need for verification, feedback is unique for buyerId and sellerId
-	$sql = "INSERT INTO feedback (buyerId, sellerId, pointsGiven) VALUES ('$buyerId','$sellerId','$pointsGiven')";
+	$sql = "INSERT INTO feedback (buyerId, sellerId, pointsGiven) VALUES ('$buyerId','$sellerId','$pointsGiven') ON DUPLICATE KEY UPDATE pointsGiven = '$pointsGiven';";
 	if ($db -> query($sql) === TRUE ) {
 		echo "Feedback Given";
 	} else {
