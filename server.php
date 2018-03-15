@@ -18,7 +18,7 @@ VALUES('$fname','$lname', '$email', '$password')";
 mysqli_query($db, $query);
   	$_SESSION['firstName'] = $fname;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location: index.html');
 
 
 if ($db -> query ($sql) === TRUE )
