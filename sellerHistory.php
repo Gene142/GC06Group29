@@ -20,10 +20,10 @@ $db = new mysqli('dbauction.mysql.database.azure.com', 'group29admin@dbauction',
 or  die('Could not connect: ');
 
 //query
-$sql  = "SELECT A.name, A.description, A.startPrice, A.resPrice, A.endDate, B.highestBid, C.viewCount FROM
-(SELECT * FROM items WHERE sellerId = '$sellerId' AND endDate < CURRENT_TIMESTAMP()) AS A LEFT OUTER JOIN 
-(SELECT MAX(bidAmount) as highestBid, itemId FROM bids GROUP BY itemId) AS B ON A.itemId = B.itemId LEFT OUTER JOIN
-(SELECT COUNT(itemId) AS viewCount, itemId FROM browsing GROUP BY itemId) AS C ON B.itemId = C.itemId;"
+$sql  = "SELECT A.name, A.description, A.startPrice, A.resPrice, A.endDate, B.highestBid, C.viewCount FROM 
+(SELECT * FROM items WHERE sellerId = '$sellerId' AND endDate < CURRENT_TIMESTAMP()) AS A LEFT OUTER JOIN  
+(SELECT MAX(bidAmount) as highestBid, itemId FROM bids GROUP BY itemId) AS B ON A.itemId = B.itemId LEFT OUTER JOIN 
+(SELECT COUNT(itemId) AS viewCount, itemId FROM browsing GROUP BY itemId) AS C ON B.itemId = C.itemId"
 or die('error with query');
 //run query, get all bids
 $result = $db->query($sql)
