@@ -12,6 +12,7 @@ table, th, td {
 	<form>
 	<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-Form.html'" />
     <input type="button" value="View Purchasing History and Give Feedback!" onclick="window.location.href='buyerHistory.php'" />
+    <input type="button" value="Log Out" onclick="window.location.href='index.html'" />
 </form>
 <?php 
 //continue session, get data

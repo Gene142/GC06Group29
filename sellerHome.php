@@ -53,6 +53,7 @@ $db->close();
 <form>
 <input type="button" value="new Auction" onclick="window.location.href='newItem-form.html'" />
 <input type="button" value="View Selling History" onclick="window.location.href='sellerHistory.php'" />
+<input type="button" value="Log Out" onclick="window.location.href='index.html'" />
 </form>
 
 </body>
