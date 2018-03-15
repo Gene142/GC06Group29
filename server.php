@@ -13,7 +13,7 @@ or die ('could not connect to database');
     
 
 $sql = "INSERT INTO buyers(firstName, lastName, email, password, address) 
-VALUES('$fname','$lname', '$email', '$password', $address)";
+VALUES('$fname','$lname', '$email', '$password', '$address')";
 
 
 if ($db -> query ($sql) === TRUE )
