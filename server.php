@@ -1,7 +1,5 @@
 <?php
 
-
-
 $fname = $_POST ["firstName"];
 $lname = $_POST ["lastName"];
 $email = $_POST ["email"];
