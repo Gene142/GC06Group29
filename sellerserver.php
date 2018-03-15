@@ -11,12 +11,12 @@ or die ('could not connect to database');
 
     
 
-$sql = "INSERT INTO seller (firstName, lastName, email, address, password) 
+$sql = "INSERT INTO sellers (firstName, lastName, email, address, password) 
 VALUES('$fname','$lname', '$email', $address ,'$password')";
 
 if ($db -> query ($sql) === TRUE )
 {
-echo "New Record Successfully Created" ;
+header('location: index.html');
 } else {
 echo "error: " .$sql. "<br> " . $db -> error;
 }
