@@ -15,15 +15,10 @@ or die ('could not connect to database');
 $sql = "INSERT INTO buyers(firstName, lastName, email, password, address) 
 VALUES('$fname','$lname', '$email', '$password', $address)";
 
-mysqli_query($db, $query);
-  	$_SESSION['firstName'] = $fname;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.html');
-
 
 if ($db -> query ($sql) === TRUE )
 {
-echo "New Record Successfully Created" ;
+  	header('location: index.html');
 } else {
 echo "error: " .$sql. "<br> " . $db -> error;
 }
