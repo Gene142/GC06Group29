@@ -20,6 +20,6 @@ or  die('Could not connect: ');
 }
 
  $db -> close ();
- echo "<a href='buyerHome.php'>Return to Home</a>"
+ echo "<a href='buyerHome.php'>Return to Home</a>";
 
  ?>
