@@ -10,7 +10,6 @@ table, th, td {
 </head>
 <body>
 	<form>
-		uiglyg
 	<input type="button" value="Find an Auction" onclick="window.location.href='BuyerAuctionBidSearch-Form.html'" />
     <input type="button" value="View Purchasing History and Give Feedback!" onclick="window.location.href='buyerHistory.php'" />
 </form>
