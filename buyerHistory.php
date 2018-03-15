@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr><td>".$row["description"]."</td><td>".$row["name"]."</td><td>".$row["startPrice"]."</td><td>".$row["endDate"]."</td><td>".$row["total"]."</td></tr>";
-        echo '<tr><td>'."<a href='feedbackPage.php?id=".$row['sellerId']."'>LEAVE FEEDBACK</a>".'</td>'. '<td>'."".'</td></tr>';        
+        echo '<tr><td>'."<a href='feedbackPage-form.php?id=".$row['sellerId']."'>LEAVE FEEDBACK</a>".'</td>'. '<td>'."".'</td></tr>';        
     }
     echo "</table>";
 } else {

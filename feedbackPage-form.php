@@ -1,6 +1,6 @@
 <?php SESSION_START(); 
 
-$sellerId = $_POST[sellerId]
+$sellerId = $_POST['sellerId'];
 ?>
 <html>
 
@@ -33,7 +33,7 @@ $sellerId = $_POST[sellerId]
            <option value = "5">5</option>
    		     </select> 
    		     </p>
-       
+    <input type = "hidden" name = "sellerId" value = "<?php echo $sellerId; ?>" />
 	 <input type="submit" value= "Submit"/>	
 		
      </form>  
