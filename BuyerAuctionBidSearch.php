@@ -12,7 +12,7 @@ $sortOption = $_POST['sortOption'];
 $db = mysqli_connect('dbauction.mysql.database.azure.com', 'group29admin@dbauction', 'Ilovedatabases1', 'auction')
 or  die('Could not connect: ');
 
-$sql = "SELECT C.sellerId, C.itemId, C.name, C.description, C.categoryId, C.bidAmount, C.endDate, D.total, C.resPrice, C. FROM
+$sql = "SELECT C.sellerId, C.itemId, C.name, C.description, C.categoryId, C.bidAmount, C.endDate, D.total, C.resPrice FROM
 (SELECT B.sellerId, B.itemId, B.name, B.description, B.categoryId, A.bidAmount, B.endDate, A.resPrice, FROM 
 (select itemId, max(bidAmount) AS bidAmount from bids group by itemId) as A RIGHT OUTER JOIN 
 (SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate, sellerId from items WHERE endDate > CURRENT_TIMESTAMP() AND categoryId = '$categoryId') AS B ON A.itemId = B.itemId) AS C LEFT OUTER JOIN
