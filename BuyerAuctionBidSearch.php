@@ -32,7 +32,7 @@ echo '<tr><td>'."Name". '</td>'. '<td>' . $row['name'].'</td></tr>';
 echo '<tr><td>' ."Item Description". '</td>'. '<td>' . $row['description'].'</td></tr>';
 echo '<tr><td>' . "Bid Amount". '</td>'. '<td>' .'£'. $row['bidAmount'].'</td></tr>';
 echo '<tr><td>' . "End Date". '</td>'. '<td>' .'£'. $row['endDate'].'</td></tr>';
-echo '<tr><td>' . "Seller Feedback Points". '</td>'. '<td>' .'£'. $row['total'].'</td></tr>';
+echo '<tr><td>' . "Seller Feedback Points". '</td>'. '<td>' .''. $row['total'].'</td></tr>';
 echo '<tr><td>'."<a href='bidPage.php?id=".$row['itemId']."'>BID ON ITEM</a>".'</td>'. '<td>'."".'</td></tr>';
 
 }
