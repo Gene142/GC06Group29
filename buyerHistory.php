@@ -45,6 +45,7 @@ include('AuctionControl.php');
 AuctionControl();  
 
 $db->close();
+ echo "<a href='buyerHome.php'>Return to Home</a>"
 ?>
 
 </body>
