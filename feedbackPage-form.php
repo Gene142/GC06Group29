@@ -1,6 +1,7 @@
 <?php SESSION_START(); 
 
-$sellerId = $_POST['sellerId'];
+$sellerId = $_REQUEST['id'];
+
 ?>
 <html>
 
