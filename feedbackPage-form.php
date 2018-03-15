@@ -1,4 +1,7 @@
-<?php SESSION_START(); ?>
+<?php SESSION_START(); 
+
+$sellerId = $_POST[sellerId]
+?>
 <html>
 
 <body>
