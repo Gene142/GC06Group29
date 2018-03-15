@@ -18,7 +18,7 @@ $sql = "SELECT C.sellerId, C.itemId, C.name, C.description, C.categoryId, C.bidA
 (SELECT itemId, name, description, startPrice, resPrice, categoryId, endDate, sellerId from items WHERE endDate > CURRENT_TIMESTAMP() AND categoryId = '$categoryId') AS B ON A.itemId = B.itemId) AS C LEFT OUTER JOIN
  (SELECT SUM(pointsGiven) AS total, sellerId from feedback GROUP BY sellerId) AS D ON D.sellerId = C.sellerId ORDER BY $sortOption ;";
 $result = $db->query($sql)
-or die('Error with query'); 
+or die('Error with query2'); 
 echo '<tr>'."These Are the Current items on the category You have Searched For". '</tr>';
 echo'<table border = "1">';
 
